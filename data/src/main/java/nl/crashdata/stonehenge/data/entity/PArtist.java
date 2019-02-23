@@ -9,6 +9,7 @@ public class PArtist {
     @Id
     @Column(name="id")
     @Access(AccessType.FIELD)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Version
