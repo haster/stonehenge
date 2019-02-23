@@ -5,11 +5,12 @@ import javax.persistence.*;
 @Entity
 @Table(name="Artist")
 @Access(AccessType.PROPERTY)
+@SequenceGenerator(name = "sequence", initialValue = 1000, allocationSize = 100)
 public class PArtist {
     @Id
     @Column(name="id")
     @Access(AccessType.FIELD)
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "sequence")
     private Long id;
 
     @Version
@@ -26,6 +27,10 @@ public class PArtist {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getVersion() {
