@@ -1,6 +1,7 @@
 package nl.crashdata.stonehenge.data.entity;
 
 import javax.persistence.*;
+import java.util.function.Supplier;
 
 @Entity
 @Table(name="Artist")
@@ -47,5 +48,9 @@ public class PArtist {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Supplier<PArtist> unproxy() {
+        return () -> this;
     }
 }

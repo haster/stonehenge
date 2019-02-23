@@ -3,7 +3,6 @@ package nl.crashdata.stonehenge.rest.controller;
 import nl.crashdata.stonehenge.data.entity.PArtist;
 import nl.crashdata.stonehenge.data.repository.ArtistRepository;
 import nl.crashdata.stonehenge.rest.entity.Artist;
-import org.apache.catalina.connector.Response;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,8 +12,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.persistence.EntityNotFoundException;
 import java.net.URI;
-import java.net.http.HttpResponse;
-import java.util.List;
 
 @RestController
 @RequestMapping("/artist")
@@ -40,8 +37,21 @@ public class ArtistController {
         return ResponseEntity.created(location).body(convertToRest(newArtist));
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        artistRepository.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Artist> update(@PathVariable("id") Long id, @RequestBody Artist newArtist) {
+        PArtist pArtist = artistRepository.getOne(id);
+        pArtist.setName(newArtist.getName());
+        artistRepository.save(pArtist);
+        return ResponseEntity.noContent().build();
+    }
+
     private Artist convertToRest(PArtist artist) {
-        return mapper.map(artist, Artist.class);
+        return mapper.map(artist.unproxy().get(), Artist.class);
     }
 
     private PArtist convertToDb(Artist artist) {
