@@ -32,7 +32,7 @@ public class ArtistController {
     }
 
     @PostMapping
-    public ResponseEntity<Artist> create(Artist artist) {
+    public ResponseEntity<Artist> create(@RequestBody Artist artist) {
         PArtist newArtist = artistRepository.save(convertToDb(artist));
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newArtist.getId()).toUri();
