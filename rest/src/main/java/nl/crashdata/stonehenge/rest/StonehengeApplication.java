@@ -5,15 +5,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories("nl.crashdata.stonehenge.data.repository")
 @EntityScan("nl.crashdata.stonehenge.data.entity")
-public class Application {
+@ComponentScan
+public class StonehengeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(StonehengeApplication.class, args);
     }
 
     @Bean
