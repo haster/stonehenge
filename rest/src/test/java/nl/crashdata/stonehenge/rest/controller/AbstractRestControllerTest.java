@@ -15,7 +15,7 @@ import java.net.URL;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AbstractRestControllerTest {
+public abstract class AbstractRestControllerTest {
     protected URL base;
 
     @Autowired
