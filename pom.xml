@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <version.java>1.11</version.java>
+        <version.java>11</version.java>
     </properties>
 
     <modules>
@@ -29,6 +29,7 @@
                 <groupId>nl.crashdata.stonehenge</groupId>
                 <artifactId>stonehenge-data</artifactId>
                 <version>${project.version}</version>
+                <scope>compile</scope>
             </dependency>
 
             <dependency>
@@ -106,10 +107,6 @@
         </pluginManagement>
 
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
