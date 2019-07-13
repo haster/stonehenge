@@ -3,8 +3,9 @@ package nl.crashdata.stonehenge.rest;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import nl.crashdata.stonehenge.data.entity.PArtist;
+
 import nl.crashdata.stonehenge.data.repository.ArtistRepository;
+import nl.crashdata.stonehenge.entities.PArtist;
 import nl.crashdata.stonehenge.rest.entity.Artist;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
