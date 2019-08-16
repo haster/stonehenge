@@ -20,9 +20,10 @@
 		<module>entities</module>
 		<module>rest</module>
 	</modules>
-	
+
 	<properties>
 		<version.java>11</version.java>
+		<version.resteasy>3.8.1.Final</version.resteasy>
 	</properties>
 
 	<dependencyManagement>
@@ -57,6 +58,17 @@
 						<artifactId>jaxb-api</artifactId>
 					</exclusion>
 				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jaxrs</artifactId>
+				<version>${version.resteasy}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jaxb-provider</artifactId>
+				<version>${version.resteasy}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
